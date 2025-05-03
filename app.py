@@ -5,14 +5,14 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 
-# --- Configuración general ---
+# === Configuración General ===
 st.set_page_config(page_title="Detector de Flores", layout="wide")
 
-# --- Cargar modelo y clases ---
+# --- Cargar Modelo y Clases(Flores que Puede Identificar) ===
 modelo = load_model("modelo_flores.h5")
 CLASES = ['Margarita', 'Girasol', 'Rosa', 'Tulipan']
 
-# --- Información botánica ---
+# === Información De Las Flores ===
 INFO_FLORES = {
     'Margarita': {
         'nombre_cientifico': 'Bellis perennis',
@@ -44,7 +44,7 @@ INFO_FLORES = {
     }
 }
 
-# --- Estilo CSS personalizado oscuro ---
+# === CSS Con Tema Oscuro ===
 st.markdown("""
     <style>
         body {
@@ -68,11 +68,11 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- Título ---
+# === Título ===
 st.markdown("<div class='titulo'>Detector Inteligente de Flores</div>", unsafe_allow_html=True)
 st.write("Sube una imagen o usa tu cámara para identificar la flor y obtener datos útiles.")
 
-# --- Selector de entrada ---
+# === Selector De Entrada ===
 origen = st.radio("Elige cómo cargar la imagen:", ["📁 Subir archivo", "📷 Usar cámara"], horizontal=True)
 
 imagen = None
@@ -85,7 +85,7 @@ elif origen == "📷 Usar cámara":
     if camara:
         imagen = Image.open(camara).convert("RGB")
 
-# --- Clasificación e interfaz en dos columnas ---
+# === Clasificación E Interfaz ===
 if imagen:
     img_resized = imagen.resize((224, 224))
     img_array = img_to_array(img_resized)

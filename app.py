@@ -6,7 +6,7 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 
 # --- Configuración general ---
-st.set_page_config(page_title="🌼 Detector de Flores", layout="wide")
+st.set_page_config(page_title="Detector de Flores", layout="wide")
 
 # --- Cargar modelo y clases ---
 modelo = load_model("modelo_flores.h5")
@@ -69,7 +69,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Título ---
-st.markdown("<div class='titulo'>🌸 Detector Inteligente de Flores</div>", unsafe_allow_html=True)
+st.markdown("<div class='titulo'>Detector Inteligente de Flores</div>", unsafe_allow_html=True)
 st.write("Sube una imagen o usa tu cámara para identificar la flor y obtener datos útiles.")
 
 # --- Selector de entrada ---
